@@ -1,0 +1,57 @@
+body {
+  background-color: #e1e2e3;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+img {
+  width: 400px;
+}
+
+figure {
+  margin-bottom: 50px;
+  float: left;
+  padding: 20px;
+  box-shadow: 2px 2px 5px;
+}
+
+figcaption {
+  text-transform: uppercase;
+  font-size: small;
+  margin-top: 10px;
+  max-width: 400px;
+}
+
+/* si separamos con comas, se aplicará el estilo de la regla css a todos los elementos de la lista  */
+figure,
+img {
+  border-radius: 5px;
+}
+
+article {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 50px 30px;
+}
+
+/* con hash indico el nombre de un id */
+#section-zanzibar {
+  background-color: burlywood;
+}
+
+/* con punto indico el nombre de una clase */
+.first-para {
+  font-size: 18px;
+  font-style: italic;
+  border-bottom: 1px solid rgb(23, 22, 22);
+  padding-bottom: 16px;
+}
