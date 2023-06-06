@@ -10,8 +10,10 @@
     
 }
 .contenedor1{
-    height: 10%;
-    width: 750px;
+    border: solid gray;
+    background-color: rgba(128, 128, 128, 0.438);
+    border-radius: 22px;
+    width: 730px;
     margin: 10px;
     display: flex;
     flex-direction: column;

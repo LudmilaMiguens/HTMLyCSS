@@ -1,0 +1,50 @@
+ol {
+    margin-left: -40px;
+    margin-top: -20px;
+    list-style-position: inside;
+  }
+  
+  /* Selector universal */
+  
+  body {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  /* Selector a través de elemento HTML */
+  p {
+    color: red;
+  }
+  
+  h1, h2, p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  /* Selector a través de Clase */
+  
+  .note {
+    font-size: 20px;
+  }
+  
+  li {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  /* Selector a través de combinar elemento HTML con clase */
+  li.point {
+    color: orange;
+    text-align: left;
+  }
+  
+  /* Selector a través de elemento con su VALOR de atributo */
+  li[value="4"] {
+    color: blue;
+  } 
+  
+  li[draggable=true] {
+    color: purple;
+  }
+  
+  /* Selector a través de ID */
+  #id-selector-demo {
+    color: green;
+  }
