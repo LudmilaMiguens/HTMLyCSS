@@ -1,0 +1,57 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.blog{
+    display: flex;
+    flex-direction:row;
+    width: auto;
+    align-items: center;
+
+}
+.contenedor{
+    width: 80%;
+    margin: 30px;
+}
+.jpgMia{
+    border-style:outset;
+}
+span{
+    font-weight: bold;
+}
+#parrafo{
+    font-size: medium;
+    font-weight: bold;
+    font-size:larger
+}
+.contenedor15años{
+    background-color:rgba(173, 171, 171, 0.158);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    width: auto; 
+    margin: 30px 30px;
+    padding: 10px 10px;
+}
+.años{
+    width: 85%;
+    text-align: center;
+}
+.titulo{
+    font-family: cream cake;
+   font-size: 4rem ;
+}
+.contenedorJPG{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+}
+.jpg{
+    width: 30rem;
+    margin: 5px 5px;
+}
