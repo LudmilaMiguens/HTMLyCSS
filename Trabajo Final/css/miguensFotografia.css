@@ -4,6 +4,20 @@
     justify-content: center;
     align-items: center;
 }
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: cream cake; 
+    background-color:rgba(173, 171, 171, 0.158); 
+    margin: 10px 0px;
+    line-height: 25px; 
+    height: 30%;
+}
+.footerRedes{
+    display: flex;
+    flex-direction:row;
+}
 .blog{
     display: flex;
     flex-direction:row;
@@ -40,7 +54,7 @@ span{
     text-align: center;
 }
 .titulo{
-    font-family: cream cake;
+   font-family: cream cake;
    font-size: 4rem ;
 }
 .contenedorJPG{
