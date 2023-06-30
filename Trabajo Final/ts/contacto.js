@@ -10,7 +10,6 @@ const evento = {
 
 formulario.addEventListener("submit", eventoclick);
 
-
 function eventoclick(e){
     e.preventDefault();
     evento.nombre = input[0].value;
@@ -18,4 +17,5 @@ function eventoclick(e){
     evento.fecha = input[2].value;
     evento.email = input[3].value;
     console.log(evento);
+    formulario.reset();
 }

@@ -20,14 +20,34 @@ cerrarBtn.addEventListener("click", () => ventanaEmergente.close());
 
 
 //funciones
-function manejarBtnActualizarVentana(){}
-function manejarBtnBorarVentana(){}
-function manejarBtnCambiarEstadoVentana(){}
+function agregarTodoAlFormularioEnviar(e){
+    e.preventDefault();
+    const comentarioInput = formulario.querySelector("#comentarios");
+    const nuevoComentario = comentarioInput.value.trim();
+    if (nuevoComentario !== ""){
+        const nuevaTarea = {
+            nComentarios: generarNumerosComentarios(),
+            comentarios: nuevoComentario,
+            estado: false,
+        };
+        tareas.push(nuevaTarea);
+        completarTabla();
+        formulario.reset();
+    }
+}
+
+function generarNumerosComentarios(){
+    if (tareas.length === 0){
+        return 1;
+    } else {
+        const ultimaTarea = tareas[tareas.length -1];
+        return ultimaTarea.nComentarios +1;
+    }
+}
 
 function completarTabla(){
     const cuerpoTabla = document.querySelector("#tabla tbody");
     cuerpoTabla.innerHTML = "";
-
     tareas.forEach((tarea) =>{
         const row = document.createElement("tr");
         row.setAttribute("data-todo-nComentarios", tarea.nComentarios);
@@ -42,10 +62,12 @@ function completarTabla(){
         row.appendChild(ComentariosCelda);
 
         const estadoCelda = document.createElement("td");
-        estadoCelda.textContent = tarea.estado? "leido" : "pendiente";
+        estadoCelda.textContent = tarea.estado? "Leido" : "Pendiente";
+        estadoCelda.classList.add(tarea.estado ? "leido" : "pendiente");
         row.appendChild(estadoCelda);
         cuerpoTabla.appendChild(row);
-    })
+        row.classList.add("colorFila");
+    })  
 }
 
 function escucharClikFila(e) {
@@ -59,32 +81,46 @@ function escucharClikFila(e) {
     tareaNComentarioVentana.value = tarea.nComentarios;
     tareaComentarioVentana.value = tarea.comentarios;
 
+    if (tarea.estado){
+        tareaEstadoVentana.textContent = " Leido";
+        tareaEstadoVentana.classList.add("estado-leido")
+        tareaEstadoVentana.classList.remove("estado-pendiente")
+    } else{
+        tareaEstadoVentana.textContent = " Pendiente";
+        tareaEstadoVentana.classList.add("estado-pendiente")
+        tareaEstadoVentana.classList.remove("estado-leido")
+    }
     ventanaEmergente.showModal();
-
 };
 
-function generarNumerosComentarios(){
-    if (tareas.length === 0){
-        return 1;
-    } else {
-        const ultimaTarea = tareas[tareas.length -1];
-        return ultimaTarea.nComentarios +1;
-    }
-}
-
-function agregarTodoAlFormularioEnviar(e){
+function manejarBtnActualizarVentana(e){
     e.preventDefault();
-
-    const comentarioInput = formulario.querySelector("#comentarios");
-    const nuevoComentario = comentarioInput.value.trim();
-    if (nuevoComentario !== ""){
-        const nuevaTarea = {
-            nComentarios: generarNumerosComentarios(),
-            comentarios: nuevoComentario,
-            estado: false,
-        };
-        tareas.push(nuevaTarea);
-        completarTabla();
-        formulario.reset();
-    }
+    const comentarioVentana = formularioVentana.querySelector("#comentarioVentana");
+    const tareaNComentarios = Number (formularioVentana.querySelector("#nComentarioVentana").value);
+    const tareaNueva = tareas.find(tareaNueva => tareaNueva.nComentarios === tareaNComentarios);
+    tareaNueva.comentarios = comentarioVentana.value;
+    ventanaEmergente.close();
+    completarTabla();
 }
+
+function manejarBtnBorarVentana(){
+    const tareaNComentarios = Number (formularioVentana.querySelector("#nComentarioVentana").value);
+    tareas = tareas.filter(tarea => tarea.nComentarios !== tareaNComentarios);
+    ventanaEmergente.close();
+    completarTabla();
+}
+
+function manejarBtnCambiarEstadoVentana(){
+    const tareaNComentarios = Number (formularioVentana.querySelector("#nComentarioVentana").value);
+    const tareaNueva = tareas.find(tareaNueva => tareaNueva.nComentarios === tareaNComentarios);
+    if (tareaNueva.estado === true){
+        tareaNueva.estado = false;
+    } else{
+        tareaNueva.estado = true;
+    }
+    ventanaEmergente.close();
+    completarTabla();
+}
+
+
+
